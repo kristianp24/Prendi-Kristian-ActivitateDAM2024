@@ -1,0 +1,18 @@
+onCreate() -> ocupa spatiul de memorie pt activitatea aferenta
+onStart() -> afiseaza activitatea pe ecran
+onResume() -> face activittea activa, utilizatorul se poate sa reactioneze, devine activa
+
+onPause() -> devine inactiva dar vziibila
+onStop() -> nu mai e nici vizibila
+onDestroy() => o distruge din memorie acitvitatea
+
+Aplicatiile sunt adaugate in stiva, in mom in care nu mai are memorie unde sa deschida aplicatie, ia stiva de activitati
+si daca nu e folosirde un anumit timp se apleaza onDestroy() pe aplicatia respectiva.
+
+Log.e() -> log de eroare
+lOG.W()-> log de warning
+log.d() -> log de debugging
+log.i()-> log de info
+
+Cand se lanseaza sunt apelate onCreate(), onStart(), onResume()
+Context -> reprezinta contextul, adica activitatea curenta in acel moment.
