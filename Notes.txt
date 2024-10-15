@@ -16,3 +16,6 @@ log.i()-> log de info
 
 Cand se lanseaza sunt apelate onCreate(), onStart(), onResume()
 Context -> reprezinta contextul, adica activitatea curenta in acel moment.
+
+Seminar 3
+Bundle este o metadata, Sunt transmite metadate. Datele transmise sunt primitive, obiectele treb sa fie serializabile.
