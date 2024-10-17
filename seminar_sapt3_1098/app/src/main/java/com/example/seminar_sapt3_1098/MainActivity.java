@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
     public void deschideActivitatea(View view){
         Intent it = new Intent(this, MainActivity2.class);
         it.putExtra("text","Text din prima activitate");
-        it.putExtra("Param1",1);
+        it.putExtra("Param1",2);
         it.putExtra("Param2",5);
 
         startActivity(it);
     }
 }
+

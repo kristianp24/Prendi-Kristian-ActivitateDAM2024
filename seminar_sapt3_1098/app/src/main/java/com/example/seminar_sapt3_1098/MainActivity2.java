@@ -3,6 +3,7 @@ package com.example.seminar_sapt3_1098;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity2 extends AppCompatActivity {
 
+    public EditText textName;
+    public EditText textGrupa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,9 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     public void abonata(View view) {
+        textGrupa = findViewById(R.id.grupaText);
+        textName = findViewById(R.id.numeText);
+       Toast.makeText(this,"Buna "+textName.getText()+" de la grupa "+textGrupa.getText(),Toast.LENGTH_LONG).show();
 
     }
 }

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">seminar_sapt3_1098</string>
+    <string name="anul"> An terminal: </string>
+    <string name="grupa"> Grupa </string>
+    <string name="nume"> Nume: </string>
+    <string name="integralist"> Integralist: </string>
+    <string name="title" > Title </string>
+    <string name="hint_name"> Introduceti numele </string>
+    <string name="hint_grupa"> Introduceti grupa </string>
+    <string name="check_da"> Da </string>
+    <string name="check_nu"> Nu </string>
+    <string name="abonat"> Aboneaza </string>
+    <string name="formular"> Formular </string>
+    <string name="sexul"> Sexul: </string>
+    <string name="Masculin"> Masculin </string>
+    <string name="Feminin"> Feminin </string>
 </resources>
