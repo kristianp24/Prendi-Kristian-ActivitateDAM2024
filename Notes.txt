@@ -19,3 +19,10 @@ Context -> reprezinta contextul, adica activitatea curenta in acel moment.
 
 Seminar 3
 Bundle este o metadata, Sunt transmite metadate. Datele transmise sunt primitive, obiectele treb sa fie serializabile.
+
+Seminar 4
+Properties:
+:gravity : cum o sa fie afisat continutul
+:layout_gravity: cum o sa fie centrat butonul, nu textul in el
+Activ se deschide in mod independent si dependent (astept ca o activitate sa dea un rezultat)
+startActivity() deschide in mod independent

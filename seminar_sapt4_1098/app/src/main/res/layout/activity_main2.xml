@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/Titlu"
+            android:textSize="50sp"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="@string/marca"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/marca_text"
+            android:layout_width="600dp"
+            android:layout_height="100dp"
+            android:hint="@string/hint"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="@string/anul"
+            android:textSize="30sp"/>
+
+        <EditText
+            android:id="@+id/an_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/hint_An"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:text="@string/speed"
+        android:textSize="30sp"/>
+
+        <EditText
+            android:id="@+id/viteza_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/hint_speed"
+            android:textSize="20sp"
+            android:inputType="numberDecimal"/>
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:text="@string/tipConsumabil"
+        android:textSize="30sp"/>
+
+        <Spinner
+            android:id="@+id/action_bar_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:entries= "@string/tipC"
+            />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal">
+  <Button
+        android:id="@+id/button_adauga"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:text="Adauga" />
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>
