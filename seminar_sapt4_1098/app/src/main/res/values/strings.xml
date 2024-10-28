@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">seminar_sapt4_1098</string>
-    <string name= "Titlu"> Adauga Masina</string>
+    <string name="Titlu"> Adauga Masina</string>
     <string name="marca"> Marca: </string>
     <string name="anul"> An producere: </string>
     <string name="speed"> Viteza maxima: </string>
@@ -9,9 +9,13 @@
     <string name="hint"> Adauga Marca... </string>
     <string name="hint_An"> Introduceti Anul de Producere ...</string>
     <string name="hint_speed"> Introduceti viteza maxima a vehicului... </string>
-    <string-array name="tipC">
-        <item> Diesel </item>
-        <item> Benzina </item>
-        <item> Gas </item>
+    <string-array name="consumabil">
+        <item name="diesel"> Diesel </item>
+        <item name="benzina"> Benzina </item>
+        <item name="gas"> Gas </item>
     </string-array>
+    <string name="radio_da"> Da </string>
+    <string name="radio_nu"> Nu </string>
+    <string name="listView"> Afisare List View </string>
+    <string name="adaugaMasina"> Adauga Masina </string>
 </resources>

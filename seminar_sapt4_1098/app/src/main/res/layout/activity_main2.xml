@@ -10,14 +10,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:text="@string/Titlu"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:textAlignment="center"/>
 
     </LinearLayout>
@@ -28,15 +28,15 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
             android:text="@string/marca"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/marca_text"
-            android:layout_width="600dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:hint="@string/hint"
             android:textSize="20sp"/>
 
@@ -48,18 +48,18 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
             android:text="@string/anul"
-            android:textSize="30sp"/>
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/an_text"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:hint="@string/hint_An"
-            android:textSize="20sp"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -69,10 +69,10 @@
         android:orientation="horizontal">
 
     <TextView
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:text="@string/speed"
-        android:textSize="30sp"/>
+        android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/viteza_text"
@@ -91,16 +91,16 @@
         android:orientation="horizontal">
 
     <TextView
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:text="@string/tipConsumabil"
-        android:textSize="30sp"/>
+        android:textSize="20sp"/>
 
         <Spinner
             android:id="@+id/action_bar_spinner"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:entries= "@string/tipC"
+            android:layout_height="60dp"
+            android:entries= "@array/consumabil"
             />
 
 
@@ -108,23 +108,59 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="@string/electrica"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            />
+
+        <RadioGroup
+            android:id="@+id/radioGrup"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/radio_da"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/radio_nu"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
 
+        <Button
+            android:id="@+id/button_adauga"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="Adauga"
 
+            />
     </LinearLayout>
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="horizontal">
-  <Button
-        android:id="@+id/button_adauga"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_weight="2"
-        android:text="Adauga" />
+
 </LinearLayout>
 
 

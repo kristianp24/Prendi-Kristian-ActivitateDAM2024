@@ -1,4 +1,9 @@
-public class Masina {
+package com.example.seminar_sapt4_1098;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Masina implements Parcelable {
     private String marca;
     private int anProducere;
     private float maxSpeed;
@@ -15,6 +20,43 @@ public class Masina {
 
     public Masina() {
     }
+
+    //metoda de deserializare
+    protected Masina(Parcel in) {
+        marca = in.readString();
+        anProducere = in.readInt();
+        maxSpeed = in.readFloat();
+        tipConsumabil = in.readString();
+        esteElectrica = in.readByte() != 0;
+    }
+
+    //metoda de serializare
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(marca);
+        dest.writeInt(anProducere);
+        dest.writeFloat(maxSpeed);
+        dest.writeString(tipConsumabil);
+        dest.writeByte((byte) (esteElectrica ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    //vector de obiecte serializate
+    public static final Creator<Masina> CREATOR = new Creator<Masina>() {
+        @Override
+        public Masina createFromParcel(Parcel in) {
+            return new Masina(in);
+        }
+
+        @Override
+        public Masina[] newArray(int size) {
+            return new Masina[size];
+        }
+    };
 
     public String getMarca() {
         return marca;
