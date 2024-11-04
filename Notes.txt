@@ -26,3 +26,19 @@ Properties:
 :layout_gravity: cum o sa fie centrat butonul, nu textul in el
 Activ se deschide in mod independent si dependent (astept ca o activitate sa dea un rezultat)
 startActivity() deschide in mod independent
+
+
+setResult (RESULT_OK, it) => Anunta activitatea curenta pentru a intoarce inapoi
+ rezultatea catre activitatea care a chemat o.
+RESULT_OK => anunta ca activitatea/ operatia a fost finalizata cu succes, adica activitatea curenta are niste date pentru a le trimite la activitatea anteriaora.
+finish(); => inchide activitatea curenta si se intoarce la activitatea care a apelat o. (NU TREBUIE UITAT)
+
+startActivityForResult(intent, 123) => incepe o noua activitate cu asteptarea ca aceasta activitate va intoarce niste data inapoi, 123 este un id (in caz ca sunt apelate mai multe activities sa stim care e cine)
+onActivityResult() => apelat automat cand activitatea chemata de la startActivityForResult() termina si trimite inapoi datele.
+Parcelable => Este o interfata care ii permite obiectului sa fie trimis intre activitati (un fel de serializare si deserializare)
+
+Creare/Populare ListView.
+Se asigneaza ca orice clasa din UI, cu findViewById()
+Trebuie un ArrayAdapter<> pentru a scrie obiectele in ListView
+android.R.layout.simple_list_item_1, layout pt o liste simpla cu un singur text
+listView.setAdapter(adapter) => ii spune lui ListView ca sa foloseasca acest adapter pentri a lua si gestiona datele

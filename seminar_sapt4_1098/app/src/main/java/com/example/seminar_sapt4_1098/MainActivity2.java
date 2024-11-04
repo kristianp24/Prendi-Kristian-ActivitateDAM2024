@@ -1,5 +1,6 @@
 package com.example.seminar_sapt4_1098;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,15 +38,22 @@ public class MainActivity2 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                //aici o sa iei datele si sa le dai la prima activitate
+                String marca = marcaTxt.getText().toString();
+                float viteza = Float.parseFloat(vitezaTxt.getText().toString());
+                int anProducere= Integer.parseInt(anProducereTxt.getText().toString());
+                String tip_C = tipCombustibil.getSelectedItem().toString();
+                boolean tipulMasiniiElectrica = false;;
+               if (electrica.getCheckedRadioButtonId() == R.id.radio_Da){
+                   tipulMasiniiElectrica = true;
+               }
+
                 // cu intent
-                Masina masina = new Masina("BMW",2020,200.5f,"benzina",false);
+                Masina masina = new Masina(marca,anProducere,viteza,tip_C,tipulMasiniiElectrica);
                 Intent it = new Intent();
                 it.putExtra("masina",masina);
                 setResult(RESULT_OK,it);
-                finish();;
+                finish();
             }
         });
     }

@@ -37,7 +37,7 @@ public class ListaMasini extends AppCompatActivity {
         ListView lv = findViewById(R.id.masiniLV);
 
         // android.R.layout.simple_list_item_1, layout pt o liste simpla cu un singur text
-        ArrayAdapter<Masina> adatper = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,masini);
+        ArrayAdapter<Masina> adatper = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, masini);
         lv.setAdapter(adatper);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

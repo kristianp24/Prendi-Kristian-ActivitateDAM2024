@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = findViewById(R.id.adauga_buton);
         Button btnList = findViewById(R.id.buttonLista);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
             {
                 Masina masina = data.getParcelableExtra("masina");
                 masini.add(masina);
-
-
             }
         }
     }
