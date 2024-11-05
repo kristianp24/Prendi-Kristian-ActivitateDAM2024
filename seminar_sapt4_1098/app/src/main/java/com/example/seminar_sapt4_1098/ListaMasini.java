@@ -18,6 +18,9 @@ import java.util.List;
 
 public class ListaMasini extends AppCompatActivity {
 
+    private List<Masina> masini = null;
+    private int idModificat = 0;
+    private MasinaAdapter adapter = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,24 +40,29 @@ public class ListaMasini extends AppCompatActivity {
         ListView lv = findViewById(R.id.masiniLV);
 
         // android.R.layout.simple_list_item_1, layout pt o liste simpla cu un singur text
-        ArrayAdapter<Masina> adatper = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, masini);
-        lv.setAdapter(adatper);
-
+       // ArrayAdapter<Masina> adatper = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, masini);
+        this.adapter = new MasinaAdapter(masini,getApplicationContext(), R.layout.row_item);
+        lv.setAdapter(this.adapter);
+lv.setFocusable(false);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), masini.get(i).toString(), Toast.LENGTH_LONG).show();
+               Intent intentModificat = new Intent(getApplicationContext(), MainActivity2.class);
+               intentModificat.putExtra("masina", masini.get(i));
+               idModificat = i;
+               startActivityForResult(intentModificat, 244);
+               Toast.makeText(getApplicationContext(), masini.get(i).toString(), Toast.LENGTH_LONG).show();
             }
         });
 
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                masini.remove(i);
-                adatper.notifyDataSetChanged();// sa notifice ca datele s au schimbat
-                return false;
-            }
-        });
+//        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                masini.remove(i);
+//                adatper.notifyDataSetChanged();// sa notifice ca datele s au schimbat
+//                return false;
+//            }
+//        });
 
 
 

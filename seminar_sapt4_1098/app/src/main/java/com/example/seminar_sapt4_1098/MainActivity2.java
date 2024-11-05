@@ -35,6 +35,20 @@ public class MainActivity2 extends AppCompatActivity {
         Spinner tipCombustibil = findViewById(R.id.action_bar_spinner);
         RadioGroup electrica  = findViewById(R.id.radioGrup);
 
+        Intent it = getIntent();
+        if(it.hasExtra("masina")){
+            Masina masina = it.getParcelableExtra("masina");
+            marcaTxt.setText(masina.getMarca());
+            vitezaTxt.setText(String.valueOf(masina.getMaxSpeed()));
+            anProducereTxt.setText(String.valueOf(masina.getAnProducere()));
+            tipCombustibil.setSelection(2);
+            if(masina.isEsteElectrica())
+                electrica.check(R.id.radio_Da);
+            else
+                electrica.check(R.id.radio_Nu);
+
+        }
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

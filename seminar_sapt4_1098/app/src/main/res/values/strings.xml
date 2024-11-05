@@ -18,4 +18,6 @@
     <string name="radio_nu"> Nu </string>
     <string name="listView"> Afisare List View </string>
     <string name="adaugaMasina"> Adauga Masina </string>
+    <string name="MasinaElectria">Masina Electrica/Hibrid</string>
+
 </resources>
