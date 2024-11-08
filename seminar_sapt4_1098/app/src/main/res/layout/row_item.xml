@@ -1,53 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="170dp"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/viewMarca"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="vertical">
+        android:layout_height="30dp"
+        android:textSize="15sp"
+        android:textAlignment="center"/>
 
-        <TextView
-            android:id = "@+id/viewMarca"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/viewAnProducere"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="15sp"
+        />
 
-        <TextView
-            android:id = "@+id/viewAnProducere"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            />
+    <TextView
+        android:id="@+id/viewMaxSpeed"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="15sp"
+        />
 
-        <TextView
-            android:id = "@+id/viewMaxSpeed"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            />
+    <TextView
+        android:id="@+id/viewCombustabil"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="15sp"
+        />
 
-        <TextView
-            android:id = "@+id/viewCombustabil"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="15sp"
-            />
-
-        <RadioButton
-            android:id="@+id/viewElectrica"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:enabled="false"
-            android:text="@string/MasinaElectria"
-            />
-
-
-
-    </LinearLayout>
-
+    <RadioButton
+        android:id="@+id/viewElectrica"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:enabled="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/MasinaElectria"
+        />
 
 </LinearLayout>

@@ -43,8 +43,8 @@ public class ListaMasini extends AppCompatActivity {
        // ArrayAdapter<Masina> adatper = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, masini);
         this.adapter = new MasinaAdapter(masini,getApplicationContext(), R.layout.row_item);
         lv.setAdapter(this.adapter);
-lv.setFocusable(false);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv.setFocusable(false);
+         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                Intent intentModificat = new Intent(getApplicationContext(), MainActivity2.class);
@@ -55,14 +55,14 @@ lv.setFocusable(false);
             }
         });
 
-//        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                masini.remove(i);
-//                adatper.notifyDataSetChanged();// sa notifice ca datele s au schimbat
-//                return false;
-//            }
-//        });
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                masini.remove(i);
+                adapter.notifyDataSetChanged();// sa notifice ca datele s au schimbat
+                return false;
+            }
+        });
 
 
 
