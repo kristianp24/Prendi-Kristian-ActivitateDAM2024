@@ -22,6 +22,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Persoana> persaone;
+    List<Student> studenti;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +36,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
         persaone = new ArrayList<>();
+        studenti = new ArrayList<>();
         Button signupButton = findViewById(R.id.button_signup);
         Button afiseazaLista = findViewById(R.id.button_login);
+        Button signupStudent = findViewById(R.id.buttonStudent);
+        Button listaStd = findViewById(R.id.buttonListaStud);
+
+        listaStd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), AfiseazaStudentiActivity.class);
+                it.putParcelableArrayListExtra("studenti", (ArrayList<? extends Parcelable>) studenti);
+                startActivity(it);
+
+            }
+        });
+
+        signupStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), MainActivity3.class);
+                startActivityForResult(it, 2434);
+            }
+        });
 
         afiseazaLista.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
             Persoana p = data.getParcelableExtra("persoana");
             persaone.add(p);
             Toast.makeText(getApplicationContext(), p.toString(), Toast.LENGTH_SHORT).show();
+        }
+        else if (requestCode == 2434 && resultCode == -1){
+            Student s = data.getParcelableExtra("student");
+            studenti.add(s);
+            Toast.makeText(this, s.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
