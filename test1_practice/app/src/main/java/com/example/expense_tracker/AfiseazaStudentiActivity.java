@@ -31,7 +31,9 @@ public class AfiseazaStudentiActivity extends AppCompatActivity {
         Intent it = getIntent();
         studenti = it.getParcelableArrayListExtra("studenti");
 
-        ArrayAdapter<Student> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, studenti);
+//        ArrayAdapter<Student> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, studenti);
+//        studLv.setAdapter(adapter);
+        StudentAdapter adapter = new StudentAdapter(studenti, getApplicationContext(), R.layout.row);
         studLv.setAdapter(adapter);
     }
 }
