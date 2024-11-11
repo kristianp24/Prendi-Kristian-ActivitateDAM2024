@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">practice2_test1</string>
+    <string name="button1"> Incarca Jucator </string>
+    <string name="button2"> Afiseaza Jucatori </string>
+    <string name="nume">Nume complet:</string>
+    <string name="echipa">Echipa:</string>
+    <string name="varsta">Varsta</string>
+    <string name="stare">Stare cariera:</string>
+    <string name="id">Id:</string>
+
+    <string name="numeHint">Adauga numele complet</string>
+    <string name="echipaHint">Adauga echipa</string>
+    <string name="varstaHint"> Adauga varsta</string>
+    <string name="carieraHint">Adauga Cariera</string>
+    <string name="hintId">Introduceti Id:</string>
+
+    <string-array name="stagiuCariera">
+        <item name="amator">Amator</item>
+        <item name="nivelmediu">Nivel mediu</item>
+        <item name="profsionist">Profesionist</item>
+    </string-array>
+
+    <string name="adaugaJucator">Adauga Jucator</string>
+</resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nume"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/numeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="@string/numeHint"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/id"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/idTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="@string/hintId"
+            android:inputType="numberDecimal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/echipa"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/echipaTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="@string/echipaHint"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/varsta"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:id="@+id/varstaTxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="@string/varstaHint"
+            android:inputType="numberDecimal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/stare"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="15sp"/>
+
+        <Spinner
+            android:id="@+id/stagiucarereTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/stagiuCariera"/>
+
+    </LinearLayout>
+
+   <Button
+       android:id="@+id/jucatorAdaugaBtn"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:text="@string/adaugaJucator"/>
+
+</LinearLayout>
