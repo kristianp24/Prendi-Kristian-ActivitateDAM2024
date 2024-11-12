@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -39,10 +40,15 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 String firstName = firstNametxt.getText().toString();
                 String lastName = lastNametxt.getText().toString();
+
                 int day = bday.getDayOfMonth();
                 int month = bday.getMonth();
                 int year = bday.getYear();
-                Date bdayDate = new Date(year,month,day);
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year,month,day);
+                long millis = calendar.getTimeInMillis();
+                Date bdayDate = new Date(millis);
+
                 String email = emailTxt.getText().toString();
 
                 Persoana p = new Persoana(firstName,lastName,bdayDate,email);
