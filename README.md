@@ -1,1 +1,1 @@
-Activitate -> DAM 2024
+Android Development course activity 2024-2025
