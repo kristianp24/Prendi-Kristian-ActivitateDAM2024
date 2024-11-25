@@ -42,3 +42,9 @@ Se asigneaza ca orice clasa din UI, cu findViewById()
 Trebuie un ArrayAdapter<> pentru a scrie obiectele in ListView
 android.R.layout.simple_list_item_1, layout pt o liste simpla cu un singur text
 listView.setAdapter(adapter) => ii spune lui ListView ca sa foloseasca acest adapter pentri a lua si gestiona datele
+
+Seminar 8
+Executor -> ne duce in firul secundar
+Handler -> asigura intoarcerea la cel principal
+BitMapFactory -> ca sa decodam imaginile.
+Looper -> se ocupa pentru a crea un join intre cele 2 threaduri
