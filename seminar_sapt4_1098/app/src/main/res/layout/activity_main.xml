@@ -46,7 +46,7 @@
         android:id="@+id/apiButton"
         android:layout_width="119dp"
         android:layout_height="55dp"
-        android:text="API conn"
+        android:text="@string/getTemp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

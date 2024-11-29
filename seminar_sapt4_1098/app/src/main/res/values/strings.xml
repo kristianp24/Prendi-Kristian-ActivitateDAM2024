@@ -24,7 +24,8 @@
     <string-array name="zile">
         <item name="z1"> 1 </item>
         <item name="z5"> 5 </item>
-        <item name="z10"> 10 </item>
+       
     </string-array>
 
+    <string name="getTemp"> Descarca Vremea </string>
 </resources>

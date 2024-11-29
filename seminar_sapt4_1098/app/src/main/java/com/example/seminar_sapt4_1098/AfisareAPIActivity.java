@@ -7,6 +7,7 @@ import android.util.JsonToken;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +24,8 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -30,12 +33,13 @@ import java.util.concurrent.Executors;
 public class AfisareAPIActivity extends AppCompatActivity {
 
     private String httpAdress = "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=kdqZdP3uemoSkApNFrcWqQcP84OcQb02&q=";
-    private String httpLocation = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/";
+    private String httpLocation = "http://dataservice.accuweather.com/forecasts/v1/daily/";
     private String metric = "?apikey=kdqZdP3uemoSkApNFrcWqQcP84OcQb02&metric=true";
     private String cheie = "";
-    private String Date ="";
-    private String tempMin = "";
-    private String tempMax = "";
+    private String Date;
+    private String tempMin;
+    private String tempMax;
+    private List<DayForecast> forecasts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,8 @@ public class AfisareAPIActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.adaugatemp);
         EditText orasTxt =  findViewById(R.id.orasTXT);
         TextView tv = findViewById(R.id.afisareTemp);
+        Spinner spinner = findViewById(R.id.spinnerZile);
+        forecasts = new ArrayList<>();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,25 +82,29 @@ public class AfisareAPIActivity extends AppCompatActivity {
                                 JSONObject obj = array.getJSONObject(0);
                                 cheie = obj.getString("Key");
 
-                                httpLocation = httpLocation + cheie + metric;
+                                String numarZile = spinner.getSelectedItem().toString();
+                                httpLocation = httpLocation + numarZile+ "day/" +cheie + metric;
                                 URL url2 = new URL(httpLocation);
                                 HttpURLConnection con2 = (HttpURLConnection) url2.openConnection();
                                 if (con2.getResponseCode() == 200){
                                     StringBuilder builder2 = new StringBuilder();
-
                                     Scanner scanner2 = new Scanner(con2.getInputStream());
                                     if(scanner2.hasNext()){
                                         builder2.append(scanner2.nextLine());
                                     }
                                     JSONObject dailyForecast = new JSONObject(builder2.toString());
+
                                     JSONArray arrayForecast = dailyForecast.getJSONArray("DailyForecasts");
-                                    JSONObject day = arrayForecast.getJSONObject(0);
-                                    Date = day.getString("Date");
-                                    JSONObject tempObj = day.getJSONObject("Temperature");
-                                    JSONObject minObj = tempObj.getJSONObject("Minimum");
-                                    tempMin = String.valueOf(minObj.getDouble("Value"));
-                                    JSONObject maxObj = tempObj.getJSONObject("Maximum");
-                                    tempMax = String.valueOf(maxObj.getDouble("Value"));
+                                    for (int i=0; i< Integer.parseInt(numarZile); i++){
+                                        JSONObject day = arrayForecast.getJSONObject(i);
+                                        Date = day.getString("Date");
+                                        JSONObject tempObj = day.getJSONObject("Temperature");
+                                        JSONObject minObj = tempObj.getJSONObject("Minimum");
+                                        tempMin = String.valueOf(minObj.getDouble("Value"));
+                                        JSONObject maxObj = tempObj.getJSONObject("Maximum");
+                                        tempMax = String.valueOf(maxObj.getDouble("Value"));
+                                        forecasts.add(new DayForecast(Date,tempMin,tempMax));
+                                    }
 
 
                                 }
@@ -111,7 +121,9 @@ public class AfisareAPIActivity extends AppCompatActivity {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                tv.setText("Data: "+Date+" Temperatura min in C:"+tempMin+" Temperatura Max in C:"+tempMax);
+                               for (DayForecast forecast : forecasts){
+                                   tv.append(forecast.toString());
+                               }
                             }
                         });
 
