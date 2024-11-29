@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">seminar_sapt4_1098</string>
+    <string name="app_name">DAM</string>
     <string name="Titlu"> Adauga Masina</string>
     <string name="marca"> Marca: </string>
     <string name="anul"> An producere: </string>
@@ -16,7 +16,7 @@
     </string-array>
     <string name="radio_da"> Da </string>
     <string name="radio_nu"> Nu </string>
-    <string name="listView"> Afisare List View </string>
+    <string name="listView"> Afisare Lista Masina </string>
     <string name="adaugaMasina"> Adauga Masina </string>
     <string name="MasinaElectria">Masina Electrica/Hibrid</string>
     <string name = "AdaugaOras"> Introduceti orasul: </string>
@@ -24,8 +24,9 @@
     <string-array name="zile">
         <item name="z1"> 1 </item>
         <item name="z5"> 5 </item>
-       
+
     </string-array>
 
     <string name="getTemp"> Descarca Vremea </string>
+    <string name="pozeMasini"> Afisare poze masini</string>
 </resources>

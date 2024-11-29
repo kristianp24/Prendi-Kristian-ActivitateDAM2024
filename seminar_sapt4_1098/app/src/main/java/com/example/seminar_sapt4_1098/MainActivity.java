@@ -3,12 +3,17 @@ package com.example.seminar_sapt4_1098;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -31,47 +36,38 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
 
-        Button btn = findViewById(R.id.adauga_buton);
-        Button btnList = findViewById(R.id.buttonLista);
-        Button btnImagine = findViewById(R.id.button3);
-        Button btnApi = findViewById(R.id.apiButton);
 
-        btnApi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), AfisareAPIActivity.class);
-                startActivity(it);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        return true;
+    }
 
-            }
-        });
-
-        btnImagine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), AfisareImaginiActivity.class);
-                startActivity(it);
-            }
-        });
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               Intent it = new Intent(getApplicationContext(), MainActivity2.class);
-               startActivityForResult(it,103);
-               //codul e ca un id pt fiecare activitate, cand ma intorc sa stiu de unde am venit
-               // nu suntem in activitatea unde este contextul de aia nu merge cu this
-            }
-        });
-
-        btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(getApplicationContext(), ListaMasini.class);
-                it.putParcelableArrayListExtra("masini", (ArrayList<? extends Parcelable>) masini);
-                startActivity(it);
-            }
-        });
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.adgMasina){
+            Intent it = new Intent(getApplicationContext(), MainActivity2.class);
+            startActivityForResult(it,103);
+        }
+        else if(item.getItemId() == R.id.listMasina){
+            Intent it = new Intent(getApplicationContext(), ListaMasini.class);
+            it.putParcelableArrayListExtra("masini", (ArrayList<? extends Parcelable>) masini);
+            startActivity(it);
+        }
+        else if(item.getItemId() == R.id.pozemasini){
+            Intent it = new Intent(getApplicationContext(), AfisareImaginiActivity.class);
+            startActivity(it);
+        }
+        else if(item.getItemId() == R.id.weather){
+            Intent it = new Intent(getApplicationContext(), AfisareAPIActivity.class);
+            startActivity(it);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
