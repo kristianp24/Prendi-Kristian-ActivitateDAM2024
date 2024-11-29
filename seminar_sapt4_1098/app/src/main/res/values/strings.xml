@@ -19,5 +19,12 @@
     <string name="listView"> Afisare List View </string>
     <string name="adaugaMasina"> Adauga Masina </string>
     <string name="MasinaElectria">Masina Electrica/Hibrid</string>
+    <string name = "AdaugaOras"> Introduceti orasul: </string>
+    <string name="zile"> Numarul de zile:</string>
+    <string-array name="zile">
+        <item name="z1"> 1 </item>
+        <item name="z5"> 5 </item>
+        <item name="z10"> 10 </item>
+    </string-array>
 
 </resources>

@@ -35,6 +35,16 @@ public class MainActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.adauga_buton);
         Button btnList = findViewById(R.id.buttonLista);
         Button btnImagine = findViewById(R.id.button3);
+        Button btnApi = findViewById(R.id.apiButton);
+
+        btnApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), AfisareAPIActivity.class);
+                startActivity(it);
+
+            }
+        });
 
         btnImagine.setOnClickListener(new View.OnClickListener() {
             @Override

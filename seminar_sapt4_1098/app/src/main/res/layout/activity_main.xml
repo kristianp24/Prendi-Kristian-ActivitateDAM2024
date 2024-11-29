@@ -41,4 +41,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adauga_buton"
         app:layout_constraintVertical_bias="0.128" />
+
+    <Button
+        android:id="@+id/apiButton"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
+        android:text="API conn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
