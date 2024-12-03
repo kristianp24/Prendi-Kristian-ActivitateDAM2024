@@ -8,15 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MainActivity2 extends AppCompatActivity {
 
+    private MyDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +68,20 @@ public class MainActivity2 extends AppCompatActivity {
                    tipulMasiniiElectrica = true;
                }
 
-                // cu intent
                 Masina masina = new Masina(marca,anProducere,viteza,tip_C,tipulMasiniiElectrica);
+                database = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "Masina").build();
+               Executor exec = Executors.newSingleThreadExecutor();
+               exec.execute(new Runnable() {
+                   @Override
+                   public void run() {
+
+                       database.getInterface().adaugaMasina(masina);
+                   }
+               });
+
+
+
+                //Toast.makeText(getApplicationContext(), "Obiectul Adaugat", Toast.LENGTH_LONG);
                 Intent it = new Intent();
                 it.putExtra("masina",masina);
                 setResult(RESULT_OK,it);

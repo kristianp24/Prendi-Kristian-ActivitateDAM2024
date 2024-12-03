@@ -1,14 +1,28 @@
 package com.example.seminar_sapt4_1098;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Masina implements Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String marca;
     private int anProducere;
     private float maxSpeed;
     private String tipConsumabil;
     private boolean esteElectrica;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Masina(String marca, int anProducere, float maxSpeed, String tipConsumabil, boolean esteElectrica) {
         this.marca = marca;
