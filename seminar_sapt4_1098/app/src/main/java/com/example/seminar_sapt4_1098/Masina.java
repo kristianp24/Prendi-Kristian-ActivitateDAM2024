@@ -32,6 +32,12 @@ public class Masina implements Parcelable {
         this.esteElectrica = esteElectrica;
     }
 
+    public String getKey(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getId());
+        return sb.toString();
+    }
+
     public Masina() {
     }
 

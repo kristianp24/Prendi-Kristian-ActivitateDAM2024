@@ -48,3 +48,7 @@ Executor -> ne duce in firul secundar
 Handler -> asigura intoarcerea la cel principal
 BitMapFactory -> ca sa decodam imaginile.
 Looper -> se ocupa pentru a crea un join intre cele 2 threaduri
+
+Seminar 11
+Fisierele SharedPreferences sunt partajate de la toate activitatile.
+getSharedPreferences() -> creeaza un fisier in nivel de aplicatie

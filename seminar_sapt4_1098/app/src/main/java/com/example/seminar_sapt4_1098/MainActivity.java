@@ -67,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
             Intent it = new Intent(getApplicationContext(), AfisareAPIActivity.class);
             startActivity(it);
         }
+        else if(item.getItemId() == R.id.preferences){
+            Intent it = new Intent(getApplicationContext(), AfisarePreferinteActivity.class);
+            startActivity(it);
+        }
         return super.onOptionsItemSelected(item);
     }
 

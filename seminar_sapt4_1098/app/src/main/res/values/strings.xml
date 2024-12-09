@@ -19,7 +19,7 @@
     <string name="listView"> Afisare Lista Masina </string>
     <string name="adaugaMasina"> Adauga Masina </string>
     <string name="MasinaElectria">Masina Electrica/Hibrid</string>
-    <string name = "AdaugaOras"> Introduceti orasul: </string>
+    <string name="AdaugaOras"> Introduceti orasul: </string>
     <string name="zile"> Numarul de zile:</string>
     <string-array name="zile">
         <item name="z1"> 1 </item>
@@ -29,4 +29,5 @@
 
     <string name="getTemp"> Descarca Vremea </string>
     <string name="pozeMasini"> Afisare poze masini</string>
+    <string name="AfiseazaPreference"> Afiseaza lista de preferinte</string>
 </resources>

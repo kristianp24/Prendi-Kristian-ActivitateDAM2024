@@ -20,6 +20,11 @@
         android:id="@+id/weather"
         android:title="@string/getTemp">
 
+
     </item>
+
+    <item
+        android:id="@+id/preferences"
+        android:title="@string/AfiseazaPreference"/>
 
 </menu>

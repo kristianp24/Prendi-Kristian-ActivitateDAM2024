@@ -1,6 +1,7 @@
 package com.example.seminar_sapt4_1098;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -89,8 +90,12 @@ public class ListaMasini extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                database.getInterface().stergeMasina(masini.get(i));
-                adapter.notifyDataSetChanged();// sa notifice ca datele s au schimbat
+                //database.getInterface().stergeMasina(masini.get(i));
+               // adapter.notifyDataSetChanged();// sa notifice ca datele s au schimbat
+                SharedPreferences sp = getSharedPreferences("obiecteFavorite", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString(masini.get(i).getKey(), masini.get(i).toString());
+                editor.commit();
                 return false;
             }
         });

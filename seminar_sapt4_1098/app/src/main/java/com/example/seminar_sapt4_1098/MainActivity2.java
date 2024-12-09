@@ -17,6 +17,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -74,7 +79,20 @@ public class MainActivity2 extends AppCompatActivity {
                exec.execute(new Runnable() {
                    @Override
                    public void run() {
-
+                       try {
+                           FileOutputStream file;
+                           file = openFileOutput("obiecteFavorite.txt", MODE_APPEND);
+                           OutputStreamWriter writer = new OutputStreamWriter(file);
+                           BufferedWriter writer1 = new BufferedWriter(writer);
+                           writer1.write(masina.toString());
+                           writer1.close();
+                           writer.close();
+                           file.close();
+                       } catch (FileNotFoundException e) {
+                           throw new RuntimeException(e);
+                       } catch (IOException e) {
+                           throw new RuntimeException(e);
+                       }
                        database.getInterface().adaugaMasina(masina);
                    }
                });
