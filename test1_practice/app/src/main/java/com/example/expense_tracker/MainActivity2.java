@@ -12,9 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -50,8 +54,8 @@ public class MainActivity2 extends AppCompatActivity {
                 Date bdayDate = new Date(millis);
 
                 String email = emailTxt.getText().toString();
-
                 Persoana p = new Persoana(firstName,lastName,bdayDate,email);
+
                 Intent it = new Intent();
                 it.putExtra("persoana",p);
                 setResult(RESULT_OK, it);

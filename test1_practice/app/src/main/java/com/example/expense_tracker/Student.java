@@ -4,8 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Student implements Parcelable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String numeComplet;
     private int varsta;
     private String CNP;
@@ -107,5 +112,13 @@ public class Student implements Parcelable {
         parcel.writeString(CNP);
         parcel.writeString(Specializarea);
         parcel.writeByte((byte) (ultimulAm ? 1 : 0));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
