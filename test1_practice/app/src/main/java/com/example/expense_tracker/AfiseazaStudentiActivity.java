@@ -43,7 +43,7 @@ public class AfiseazaStudentiActivity extends AppCompatActivity {
         exec.execute(new Runnable() {
             @Override
             public void run() {
-                studenti =db.getInterface().getStudents();
+                studenti.add(db.getInterface().getStudent(2));
 
                 handler.post(new Runnable() {
                     @Override

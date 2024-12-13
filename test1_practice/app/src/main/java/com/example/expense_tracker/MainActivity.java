@@ -41,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
         Button afiseazaLista = findViewById(R.id.button_login);
         Button signupStudent = findViewById(R.id.buttonStudent);
         Button listaStd = findViewById(R.id.buttonListaStud);
+        Button listaImg = findViewById(R.id.buttonImg);
+
+
+        listaImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), AfiseazaListaImaginiActivity.class);
+                startActivity(it);
+            }
+        });
 
         listaStd.setOnClickListener(new View.OnClickListener() {
             @Override
