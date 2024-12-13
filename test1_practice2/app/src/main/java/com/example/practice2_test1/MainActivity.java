@@ -33,7 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button adaugaJucator = findViewById(R.id.icarcaJucatorBtn);
         Button afiseazaJucatori = findViewById(R.id.afiseazaJucatoriBtn);
+        Button afiseazaPreferintele  =findViewById(R.id.buttonPreferinte);
+
         jucatori = new ArrayList<>();
+
+        afiseazaPreferintele.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), AfiseasaPreferatiActivity.class);
+                startActivity(it);
+            }
+        });
         afiseazaJucatori.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

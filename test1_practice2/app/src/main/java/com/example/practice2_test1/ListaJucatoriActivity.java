@@ -1,7 +1,10 @@
 package com.example.practice2_test1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -13,13 +16,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 import java.util.List;
-
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 
 public class ListaJucatoriActivity extends AppCompatActivity {
 
+    MyDatabase db;
     List<Jucator> jucatori = null;
     private int idModificat = 0;
     private BaseAdapter adapter;
@@ -34,12 +40,30 @@ public class ListaJucatoriActivity extends AppCompatActivity {
             return insets;
         });
 
-        Intent it = getIntent();
-        jucatori = it.getParcelableArrayListExtra("jucatori");
+        //Intent it = getIntent();
+        //jucatori = it.getParcelableArrayListExtra("jucatori");
+
 
         ListView jucatoriLv = findViewById(R.id.jucatoriLv);
-        adapter = new JucatorAdapter(getApplicationContext(),jucatori, R.layout.row);
-        jucatoriLv.setAdapter(adapter);
+        Executor executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.myLooper());
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "Jucator").build();
+                jucatori = db.getInterface().getJucatorii();
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        adapter = new JucatorAdapter(getApplicationContext(),jucatori, R.layout.row);
+                        jucatoriLv.setAdapter(adapter);
+                    }
+                });
+            }
+
+        });
 
         jucatoriLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,6 +75,26 @@ public class ListaJucatoriActivity extends AppCompatActivity {
 
             }
         });
+
+        jucatoriLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Executor executor1 = Executors.newSingleThreadExecutor();
+                Jucator j = jucatori.get(i);
+//                executor1.execute(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        db=Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "Jucator").build();
+//                        db.getInterface().deleteJucator(j);
+//                    }
+//                });
+                SharedPreferences sp = getSharedPreferences("jucatoriFavoriti", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString(String.valueOf(j.getId()), j.toString());
+                editor.apply();
+                return true;
+            }
+        });
     }
 
     @Override
@@ -58,8 +102,25 @@ public class ListaJucatoriActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == -1 && requestCode == 222){
             Jucator j = data.getParcelableExtra("jucator");
-            jucatori.set(this.idModificat, j);
-            adapter.notifyDataSetChanged();
+            //jucatori.set(this.idModificat, j);
+            Executor executor = Executors.newSingleThreadExecutor();
+            Handler handler = new Handler(Looper.myLooper());
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "Jucator").build();
+                    db.getInterface().updateJucator(j);
+                    jucatori = db.getInterface().getJucatorii();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            });
+
         }
     }
 }

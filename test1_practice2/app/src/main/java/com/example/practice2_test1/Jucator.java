@@ -4,8 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity
 public class Jucator implements Parcelable {
+    @PrimaryKey
     private int id;
     private String numeComplet;
     private String echipa;
