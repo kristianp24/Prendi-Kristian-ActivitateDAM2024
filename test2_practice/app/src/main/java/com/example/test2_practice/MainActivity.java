@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     String urlLink = "http://universities.hipolabs.com/search?name=middle";
     String urlLinkShows = "http://api.tvmaze.com/search/shows?q=postman";
+    ShowsDatabase db;
     int aux = 0;
     List<University> universities;
     List<TvShow> shows;
@@ -132,14 +134,23 @@ public class MainActivity extends AppCompatActivity {
                            for (int j=0;j<genresArray.length();j++){
                                genres.add(genresArray.getString(j));
                            }
+                           String generesString = "";
+                           for (int k=0;k<genresArray.length();k++){
+                               generesString += genresArray.getString(k);
+                               generesString += ",";
+                           }
                            String date = showObject.getString("premiered");
                            int year = Integer.parseInt(date.split("-")[0]);
                            int month = Integer.parseInt(date.split("-")[1]);
                            int day = Integer.parseInt(date.split("-")[2]);
                            Date premiered = new Date(year, month, day);
-                           shows.add(new TvShow(scoreF, id, name, genres, premiered));
+                           long premieredLong = premiered.getTime();
+                           shows.add(new TvShow(scoreF, id, name, generesString, premieredLong));
 
                        }
+//                       db = Room.databaseBuilder(getApplicationContext(), ShowsDatabase.class, "TvShows").build();
+//                       db.getInterface().insertShows(shows);
+
                        aux = 1;
                    } catch (MalformedURLException e) {
                        throw new RuntimeException(e);
@@ -153,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                        @Override
                        public void run() {
                            if (aux == 1)
-                               Toast.makeText(MainActivity.this, "Datele preluate", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(MainActivity.this, "Datele preluate si inserate in baza de date!", Toast.LENGTH_SHORT).show();
                        }
                    });
 

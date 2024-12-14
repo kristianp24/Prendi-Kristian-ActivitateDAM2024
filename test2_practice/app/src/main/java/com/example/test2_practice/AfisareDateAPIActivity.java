@@ -2,6 +2,8 @@ package com.example.test2_practice;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,13 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class AfisareDateAPIActivity extends AppCompatActivity {
 
-    List<University> unis = new ArrayList<>();
+    List<TvShow> shows = new ArrayList<>();
+    ShowsDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +34,29 @@ public class AfisareDateAPIActivity extends AppCompatActivity {
             return insets;
         });
 
-        Intent it = getIntent();
-        unis = it.getParcelableArrayListExtra("shows");
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, unis);
-        ListView list = findViewById(R.id.lv);
-        list.setAdapter(adapter);
+//        Intent it = getIntent();
+//        unis = it.getParcelableArrayListExtra("shows");
+
+        Executor executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.myLooper());
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                db = Room.databaseBuilder(getApplicationContext(), ShowsDatabase.class, "TvShows").build();
+                shows = db.getInterface().getShows();
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, shows);
+                        ListView list = findViewById(R.id.lv);
+                        list.setAdapter(adapter);
+                    }
+                });
+            }
+
+
+        });
 
     }
 }
