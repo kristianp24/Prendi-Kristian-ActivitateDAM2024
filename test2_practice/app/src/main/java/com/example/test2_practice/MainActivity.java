@@ -1,6 +1,7 @@
 package com.example.test2_practice;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -56,6 +57,30 @@ public class MainActivity extends AppCompatActivity {
             Executor exec = Executors.newSingleThreadExecutor();
             Handler handler = new Handler(Looper.myLooper());
             Button btn = findViewById(R.id.button1);
+            Button btnXML = findViewById(R.id.button2);
+            Button btnSharedPref = findViewById(R.id.button3);
+
+            btnSharedPref.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SharedPreferences sp = getSharedPreferences("favoriteShows", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    for (TvShow show : shows){
+                        editor.putString(String.valueOf(show.getId()), show.toString());
+                    }
+                    editor.apply();
+                    Toast.makeText(MainActivity.this, "Datele salvate in Shared pref!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            btnXML.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent it = new Intent(getApplicationContext(), AfisareDateXMLActivity.class);
+                    startActivity(it);
+                }
+            });
+
 //            exec.execute(new Runnable() {
 //                @Override
 //                public void run() {
@@ -164,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
                        @Override
                        public void run() {
                            if (aux == 1)
-                               Toast.makeText(MainActivity.this, "Datele preluate si inserate in baza de date!", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(MainActivity.this, "Datele preluate", Toast.LENGTH_SHORT).show();
                        }
                    });
 
@@ -179,6 +204,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(it);
                 }
             });
+
+
 
 
 
