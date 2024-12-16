@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Test2_practice"
         tools:targetApi="31">
         <activity
+            android:name=".AfisareCutremuriActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CutremuriActivity"
+            android:exported="false" />
+        <activity
             android:name=".AfisareDateXMLActivity"
             android:exported="false" />
         <activity

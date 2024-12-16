@@ -59,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
             Button btn = findViewById(R.id.button1);
             Button btnXML = findViewById(R.id.button2);
             Button btnSharedPref = findViewById(R.id.button3);
+            Button cutremuriBtn =  findViewById(R.id.button4);
+            cutremuriBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent it = new Intent(getApplicationContext(), CutremuriActivity.class);
+                    startActivity(it);
+                }
+            });
 
             btnSharedPref.setOnClickListener(new View.OnClickListener() {
                 @Override

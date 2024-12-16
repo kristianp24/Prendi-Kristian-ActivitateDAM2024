@@ -6,4 +6,5 @@ import androidx.room.RoomDatabase;
 @Database(entities = {TvShow.class}, version = 1)
 public abstract class ShowsDatabase extends RoomDatabase {
     public abstract InterfaceDAO getInterface();
+
 }

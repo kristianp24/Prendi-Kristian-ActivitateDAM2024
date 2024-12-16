@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CutremuriActivity">
+
+    <Button
+        android:id="@+id/preiaDateBtn"
+        android:layout_width="149dp"
+        android:layout_height="55dp"
+        android:text="Preia date cutremuri"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <Button
+        android:id="@+id/salveazaBDbtn"
+        android:layout_width="170dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="456dp"
+        android:text="Salveaza in Baza de date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preiaDateBtn"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <Button
+        android:id="@+id/preiaBDbtn"
+        android:layout_width="155dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="336dp"
+        android:text="Preia din baza de date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salveazaBDbtn"
+        app:layout_constraintVertical_bias="0.146" />
+</androidx.constraintlayout.widget.ConstraintLayout>
