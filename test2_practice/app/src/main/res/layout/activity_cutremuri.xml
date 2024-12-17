@@ -43,4 +43,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salveazaBDbtn"
         app:layout_constraintVertical_bias="0.146" />
+
+    <Button
+        android:id="@+id/buttonSharedPref"
+        android:layout_width="133dp"
+        android:layout_height="64dp"
+        android:text="Salveaza in shared pref"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preiaBDbtn"
+        app:layout_constraintVertical_bias="0.124" />
 </androidx.constraintlayout.widget.ConstraintLayout>

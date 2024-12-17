@@ -1,6 +1,7 @@
 package com.example.test2_practice;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -52,6 +53,19 @@ public class CutremuriActivity extends AppCompatActivity {
         Button preiaDateBtn = findViewById(R.id.preiaDateBtn);
         Button salveazaBD = findViewById(R.id.salveazaBDbtn);
         Button preiaDateBD = findViewById(R.id.preiaBDbtn);
+        Button salveazaSharedPref = findViewById(R.id.buttonSharedPref);
+
+        salveazaSharedPref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp = getSharedPreferences("earthquakes", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                for(Earthquake e: earthquakeList){
+                    editor.putString(e.getId(),e.toString());
+                }
+                editor.apply();
+            }
+        });
 
         preiaDateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,5 +171,7 @@ public class CutremuriActivity extends AppCompatActivity {
                 });
             }
         });
+
+
     }
 }
