@@ -1,4 +1,7 @@
 # 📱 Activitate DAM 2024
+![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-7.6-02303A?logo=gradle&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-Koala-green?logo=androidstudio&logoColor=white)
 
 > 🧑‍🎓 A personal Android dev lab journal
 
