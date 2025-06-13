@@ -1,4 +1,4 @@
-# 📱 Prendi Kristian – Activitate DAM 2024
+# 📱 Activitate DAM 2024
 
 > 🧑‍🎓 A personal Android dev lab journal
 
