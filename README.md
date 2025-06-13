@@ -2,14 +2,14 @@
 
 > 🧑‍🎓 A personal Android dev lab journal b
 
-Welcome to my university repo for **Mobile Application Development (DAM)** — where I explore, build, and break Android apps as part of my 2024 coursework! 🚀
+Welcome to my university repo for **Mobile Application Development (DAM)** 🚀
 
 ---
 
 ## 📘 What's Inside?
 
 This repo includes all lab work done during the semester 📆.  
-Each folder = one lab = one step closer to Android mastery 💡
+The main lab which contains the work done through other labs is the "seminar_4" one 💡
 
 ### Topics Covered:
 - 🧱 Layouts & Views
@@ -17,8 +17,6 @@ Each folder = one lab = one step closer to Android mastery 💡
 - 🧭 Fragments & Navigation
 - 💾 SQLite Databases
 - 🌐 API Requests
-- 🔥 Firebase *(if added)*
-- 📡 Sensors & Permissions
 
 ---
 
@@ -35,8 +33,7 @@ Each folder = one lab = one step closer to Android mastery 💡
 Each lab contains:
 - 💻 Java source code
 - 🖼️ XML layouts
-- 📝 Notes or README (sometimes)
-- 📸 Screenshots (when available)
+
 
 ---
 
